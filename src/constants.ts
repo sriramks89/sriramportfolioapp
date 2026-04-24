@@ -84,13 +84,13 @@ export const EDUCATION = [
     school: "The University of Texas at Dallas", 
     degree: "Master of Science in Computer Science (Software Engineering)",
     year: "2013",
-    logo: "/utd-logo.jpg"
+    logo: "/UT_Dallas_Monogram_-_2_color_(Updated).jpg"
   },
   { 
     school: "Anna University", 
     degree: "Bachelor of Technology - Information Technology",
     year: "2011",
-    logo: "/anna-uni-logo.png"
+    logo: "/Anna uni.png"
   }
 ];
 
