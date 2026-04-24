@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-white text-neutral-900 selection:bg-blue-500 selection:text-white transition-colors duration-300;
+  }
+  .dark body {
+    @apply bg-neutral-950 text-neutral-100;
+  }
+}
+
+@layer utilities {
+  .text-outline {
+    -webkit-text-stroke: 1px rgba(0, 0, 0, 0.1);
+    color: transparent;
+  }
+  .dark .text-outline {
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
+  }
+  .bento-card {
+    @apply bg-neutral-50 border border-neutral-200 rounded-3xl p-8 transition-all duration-300;
+  }
+  .dark .bento-card {
+    @apply bg-neutral-900 border-neutral-800;
+  }
+  .bento-card-accent {
+    @apply bg-blue-600 rounded-3xl p-8 transition-all duration-300 text-white;
+  }
+  .bento-card-white {
+    @apply bg-white border border-neutral-200 text-black rounded-3xl p-8 transition-all duration-300;
+  }
+  .dark .bento-card-white {
+    @apply bg-white border-transparent text-black;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ddd;
+  border-radius: 10px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #222;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ccc;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #444;
+}
