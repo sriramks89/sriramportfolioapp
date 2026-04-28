@@ -359,16 +359,29 @@ export default function App() {
                 <h2 className="text-xl font-black uppercase tracking-widest text-neutral-800 dark:text-neutral-300">Client Portfolio</h2>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 gap-3">
-                {COMPANIES.map((company, idx) => (
-                  <div key={idx} className={`bento-card p-4 flex items-center gap-3 hover:border-blue-500/30 transition-all group border ${company.isPrimary ? 'border-blue-500/20 bg-blue-500/5 dark:bg-blue-500/5' : 'border-neutral-200 dark:border-neutral-800'}`}>
+                {Object.values(
+                  COMPANIES.reduce((acc, c) => {
+                    if (!acc[c.industry]) acc[c.industry] = { ...c, count: 1 };
+                    else acc[c.industry].count++;
+                    return acc;
+                  }, {} as Record<string, typeof COMPANIES[0] & { count: number }>)
+                ).map((company) => (
+                  <div key={company.industry} className={`bento-card p-4 flex items-center gap-3 hover:border-blue-500/30 transition-all group border ${company.isPrimary ? 'border-blue-500/20 bg-blue-500/5 dark:bg-blue-500/5' : 'border-neutral-200 dark:border-neutral-800'}`}>
                     <div className="w-10 h-10 rounded-lg bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center shrink-0 border border-neutral-200 dark:border-neutral-700">
                       <Building2 className="w-5 h-5 text-neutral-500 dark:text-neutral-400 group-hover:text-blue-500 transition-colors" />
                     </div>
-                    <div className="text-left">
-                      <h4 className="font-bold text-[11px] text-neutral-800 dark:text-neutral-200 leading-tight">
-                        {company.industry}
-                        {company.isPrimary && <span className="ml-1 text-blue-500 text-[8px] uppercase tracking-tighter">*Primary</span>}
-                      </h4>
+                    <div className="text-left flex-1">
+                      <div className="flex items-center gap-1.5">
+                        <h4 className="font-bold text-[11px] text-neutral-800 dark:text-neutral-200 leading-tight">
+                          {company.industry}
+                        </h4>
+                        {company.count > 1 && (
+                          <span className="text-[9px] font-semibold bg-neutral-200 dark:bg-neutral-700 text-neutral-600 dark:text-neutral-300 rounded-full px-1.5 py-0.5 leading-none">
+                            ×{company.count}
+                          </span>
+                        )}
+                        {company.isPrimary && <span className="text-blue-500 text-[8px] uppercase tracking-tighter">*Primary</span>}
+                      </div>
                       <p className="text-[8px] text-neutral-700 dark:text-neutral-500 uppercase tracking-widest font-medium mt-0.5">{company.role}</p>
                     </div>
                   </div>
