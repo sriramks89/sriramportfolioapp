@@ -359,20 +359,15 @@ export default function App() {
                 <h2 className="text-xl font-black uppercase tracking-widest text-neutral-800 dark:text-neutral-300">Client Portfolio</h2>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 gap-3">
-                {COMPANIES.map((company) => (
-                  <div key={company.name} className={`bento-card p-4 flex items-center gap-3 hover:border-blue-500/30 transition-all group border ${company.name === 'CG Infinity' ? 'border-blue-500/20 bg-blue-500/5 dark:bg-blue-500/5' : 'border-neutral-200 dark:border-neutral-800'}`}>
-                    <div className="w-10 h-10 rounded-lg bg-neutral-100 dark:bg-neutral-800 p-1 overflow-hidden shrink-0 border border-neutral-200 dark:border-neutral-700">
-                      <img 
-                        src={company.logo} 
-                        alt={company.name} 
-                        className="w-full h-full object-contain grayscale group-hover:grayscale-0 transition-all" 
-                        onError={(e) => (e.currentTarget.src = 'https://www.google.com/s2/favicons?domain=' + company.name.toLowerCase().replace(/ /g, '') + '.com&sz=64')}
-                      />
+                {COMPANIES.map((company, idx) => (
+                  <div key={idx} className={`bento-card p-4 flex items-center gap-3 hover:border-blue-500/30 transition-all group border ${company.isPrimary ? 'border-blue-500/20 bg-blue-500/5 dark:bg-blue-500/5' : 'border-neutral-200 dark:border-neutral-800'}`}>
+                    <div className="w-10 h-10 rounded-lg bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center shrink-0 border border-neutral-200 dark:border-neutral-700">
+                      <Building2 className="w-5 h-5 text-neutral-500 dark:text-neutral-400 group-hover:text-blue-500 transition-colors" />
                     </div>
                     <div className="text-left">
                       <h4 className="font-bold text-[11px] text-neutral-800 dark:text-neutral-200 leading-tight">
-                        {company.name}
-                        {company.name === 'CG Infinity' && <span className="ml-1 text-blue-500 text-[8px] uppercase tracking-tighter">*Primary</span>}
+                        {company.industry}
+                        {company.isPrimary && <span className="ml-1 text-blue-500 text-[8px] uppercase tracking-tighter">*Primary</span>}
                       </h4>
                       <p className="text-[8px] text-neutral-700 dark:text-neutral-500 uppercase tracking-widest font-medium mt-0.5">{company.role}</p>
                     </div>

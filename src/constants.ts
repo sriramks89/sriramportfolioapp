@@ -66,17 +66,17 @@ export const SKILLS = [
 ];
 
 export const COMPANIES = [
-  { name: "CG Infinity", role: "Primary Consulting Firm", logo: "https://logo.clearbit.com/cginfinity.com" },
-  { name: "First United Bank", role: "Consultant", logo: "https://logo.clearbit.com/firstunitedbank.com" },
-  { name: "Alliant Group", role: "Consultant", logo: "https://logo.clearbit.com/alliantgroup.com" },
-  { name: "Brinks Home Security", role: "Consultant", logo: "https://logo.clearbit.com/brinkshome.com" },
-  { name: "Atlantic Energy", role: "Consultant", logo: "https://logo.clearbit.com/atlanticenergy.com" },
-  { name: "Shell", role: "Consultant", logo: "https://logo.clearbit.com/shell.com" },
-  { name: "North American Power", role: "Consultant", logo: "https://logo.clearbit.com/napower.com" },
-  { name: "Stage Stores", role: "Consultant", logo: "https://logo.clearbit.com/stage.com" },
-  { name: "Dell", role: "Consultant", logo: "https://logo.clearbit.com/dell.com" },
-  { name: "Nerium", role: "Consultant", logo: "https://logo.clearbit.com/nerium.com" },
-  { name: "Peapack-Gladstone bank", role: "Consultant", logo: "https://logo.clearbit.com/pgbank.com" },
+  { industry: "IT Consulting", role: "Primary Consulting Firm", isPrimary: true },
+  { industry: "Banking", role: "Consultant" },
+  { industry: "Tax & Business Consulting", role: "Consultant" },
+  { industry: "Home Security", role: "Consultant" },
+  { industry: "Energy & Utilities", role: "Consultant" },
+  { industry: "Oil & Gas", role: "Consultant" },
+  { industry: "Energy & Utilities", role: "Consultant" },
+  { industry: "Retail", role: "Consultant" },
+  { industry: "Technology", role: "Consultant" },
+  { industry: "Health & Wellness", role: "Consultant" },
+  { industry: "Banking", role: "Consultant" },
 ];
 
 export const EDUCATION = [
